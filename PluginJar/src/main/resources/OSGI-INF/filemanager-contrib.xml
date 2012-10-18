@@ -1,0 +1,11 @@
+<?xml version="1.0" ?> 
+	<component name="com.sword.plugin.filemanager">
+ 	<extension target="org.nuxeo.ecm.platform.filemanager.service.FileManagerService" 
+ 		point="plugins">
+ 		<plugin name="MailImporter" class="com.sword.plugin.filemanager.MailImporter" 
+ 			enabled="true" order="9">
+ 			<filter>msg</filter> 
+  			<filter>application/msoutlook</filter>
+  		</plugin>
+  	</extension>
+</component>

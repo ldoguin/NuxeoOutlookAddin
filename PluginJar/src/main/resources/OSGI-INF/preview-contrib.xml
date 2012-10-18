@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<component name="com.sword.plugin.preview.DwgPreviewer">
+    <extension target="org.nuxeo.ecm.platform.preview.adapter.PreviewAdapterManagerComponent" point="MimeTypePreviewer">
+      <previewer class="com.sword.plugin.preview.DwgPreviewer">
+        <pattern>application/msoutlook</pattern>
+      </previewer>
+    </extension>
+</component>

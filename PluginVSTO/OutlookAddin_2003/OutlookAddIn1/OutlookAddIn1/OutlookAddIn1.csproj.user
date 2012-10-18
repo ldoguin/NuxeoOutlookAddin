@@ -1,0 +1,16 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory>publish\</PublishUrlHistory>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}" xmlns="">
+        <ProjectClient>
+          <VSTO_CompatibleProducts ErrorProduct="Ce projet requiert Microsoft Office Outlook 2003 et les assemblys PIA inscrits, mais ils ne sont pas installés." ErrorPIA="Ce projet fait référence à l'assembly PIA (Primary Interop Assembly) de Microsoft Office Outlook 2003, mais cet assembly PIA n'est pas installé.">
+            <Product Code="{XXXXXXXX-6000-11D3-8CFE-0150048383C9}" Feature="OUTLOOKFiles" PIAFeature="Outlook_PIA" />
+          </VSTO_CompatibleProducts>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

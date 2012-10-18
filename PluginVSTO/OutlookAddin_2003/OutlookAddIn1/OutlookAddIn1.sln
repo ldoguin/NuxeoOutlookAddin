@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutlookAddIn1", "OutlookAddIn1\OutlookAddIn1.csproj", "{8E8B5205-7F46-438B-AD80-6E5661D6CF1A}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "OutlookAddIn1Installation", "OutlookAddIn1Installation\OutlookAddIn1Installation", "{3A13E6F8-0B15-4C5F-BFB2-23340D9AEE9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetSecurity", "C:\Program Files (x86)\Microsoft Visual Studio 2005 Tools for Office SE Resources\VSTO2005SE Windows Installer Sample Version 3\projects\SetSecurity\SetSecurity.csproj", "{56E8E807-0807-45E0-B19A-98912AE47630}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E8B5205-7F46-438B-AD80-6E5661D6CF1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E8B5205-7F46-438B-AD80-6E5661D6CF1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E8B5205-7F46-438B-AD80-6E5661D6CF1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E8B5205-7F46-438B-AD80-6E5661D6CF1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A13E6F8-0B15-4C5F-BFB2-23340D9AEE9A}.Debug|Any CPU.ActiveCfg = Debug
+		{3A13E6F8-0B15-4C5F-BFB2-23340D9AEE9A}.Release|Any CPU.ActiveCfg = Release
+		{56E8E807-0807-45E0-B19A-98912AE47630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56E8E807-0807-45E0-B19A-98912AE47630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56E8E807-0807-45E0-B19A-98912AE47630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56E8E807-0807-45E0-B19A-98912AE47630}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

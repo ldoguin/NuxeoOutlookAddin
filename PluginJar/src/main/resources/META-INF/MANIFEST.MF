@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Require-Bundle: org.nuxeo.runtime
+Bundle-Vendor: Astone Solutions
+Bundle-Version: 1.0.0
+Bundle-Name: Nuxeo Studio Extension - studio.extensions.outlook-plugin
+Nuxeo-Component: OSGI-INF/mimetype-contrib.xml,
+ OSGI-INF/filemanager-contrib.xml,
+ OSGI-INF/preview-contrib.xml,
+ OSGI-INF/converter-contrib.xml,
+ OSGI-INF/restAPI-contrib.xml
+Bundle-ManifestVersion: 2
+Created-By: Astone Solutions
+Bundle-SymbolicName: studio.extensions.outlook-plugin

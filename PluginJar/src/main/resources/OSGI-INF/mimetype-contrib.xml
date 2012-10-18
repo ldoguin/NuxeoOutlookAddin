@@ -1,0 +1,15 @@
+<?xml version="1.0" ?> 
+	<component name="com.sword.plugin.mimetype">
+ 	<extension target="org.nuxeo.ecm.platform.mimetype.service.MimetypeRegistryService" 
+ 		point="mimetype">
+ 	<mimetype normalized="application/msoutlook" binary="true" iconPath="email.png" 
+ 		oleSupported="true">
+	 	<mimetypes>
+	  		<mimetype>application/msoutlook</mimetype> 
+	  	</mimetypes>
+	 	<extensions>
+	  		<extension>msg</extension> 
+	  	</extensions>
+  	</mimetype>
+  </extension>
+</component>

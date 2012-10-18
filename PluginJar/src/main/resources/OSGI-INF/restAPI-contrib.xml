@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<component name="com.sword.plugin.restAPI">
+
+     <extension target="org.nuxeo.ecm.platform.ui.web.restAPI.service.PluggableRestletService" point="restlets">
+	    <documentation>
+	     Upload attached files of a document
+	      POST /nuxeo/restAPI/{repoId}/{docId}/{filename}/uploadAttached
+	    </documentation>
+	    <restletPlugin
+	        name="uploadAttachedRestlet"
+	        class="com.sword.plugin.restAPI.UploadAttachedRestlet"
+	        enabled="true"
+	        useSeam="true">
+	      <urlPatterns>
+	        <urlPattern>/{repo}/{docid}/{filename}/uploadAttached</urlPattern>
+	      </urlPatterns>
+	    </restletPlugin>	
+	</extension>
+</component> 

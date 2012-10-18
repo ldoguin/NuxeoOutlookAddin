@@ -1,0 +1,11 @@
+<?xml version="1.0" ?> 
+<component name="com.sword.plugin.converter">
+	<extension point="converter"
+		target="org.nuxeo.ecm.core.convert.service.ConversionServiceImpl">
+	    <converter class="com.sword.plugin.converter.ConverterMsg2Text" 
+	    	name="msg2text">
+	      <sourceMimeType>application/msoutlook</sourceMimeType>
+	      <destinationMimeType>text/plain</destinationMimeType>
+	    </converter>
+	</extension>
+</component>

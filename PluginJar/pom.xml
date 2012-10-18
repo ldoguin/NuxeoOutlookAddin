@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.sword.plugin</groupId>
+  <artifactId>Mail_plugin</artifactId>
+  
+  <version>1.0-SNAPSHOT</version>
+
+  <name>Mail_Serveur_Plugin</name>
+  <url>http://www.sword.com</url>
+  
+  <parent>
+    <groupId>org.nuxeo.ecm.platform</groupId>
+    <artifactId>nuxeo-features-parent</artifactId>
+    <version>5.4.2</version>
+  </parent>
+
+  <dependencies>
+	    <dependency>
+      		<groupId>org.nuxeo.ecm.platform</groupId>
+      		<artifactId>nuxeo-platform-webapp-core</artifactId>
+	    </dependency>
+	      <dependency>
+	    	<groupId>org.nuxeo.ecm.platform</groupId>
+	    	<artifactId>nuxeo-platform-filemanager-core</artifactId>
+	    </dependency>
+	  	<dependency>
+    		<groupId>org.nuxeo.ecm.platform</groupId>
+  			<artifactId>nuxeo-platform-preview</artifactId>
+  		</dependency>
+		<dependency>
+			<groupId>com.auxilii</groupId>
+			<artifactId>msgparser</artifactId>
+			<version>1.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.nuxeo.ecm.core</groupId>
+			<artifactId>nuxeo-core-convert-plugins</artifactId>
+			<version>${nuxeo.core.version}</version>
+		</dependency>
+  </dependencies>
+
+  <repositories>
+    <repository>
+        <id>public</id>
+        <url>http://maven.nuxeo.org/public</url>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+    </repository>
+    <repository>
+        <id>snapshots</id>
+        <url>http://maven.nuxeo.org/public-snapshot</url>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+        <releases>
+            <enabled>false</enabled>
+        </releases>
+    </repository>
+  </repositories>
+
+	<build>
+		<finalName>Mail_serveur_plugin</finalName>
+		<plugins>
+			<plugin>
+        		 <artifactId>maven-antrun-plugin</artifactId>
+		        <executions>
+		          <execution>
+		            <phase>install</phase>
+		            <configuration>
+		              <tasks>		
+		               <echo message="Copie du JAR sous Nuxeo"/>
+		                <delete file="${plugins.dir}/Mail_serveur_plugin.jar"/>
+		                <copy file="target/Mail_serveur_plugin.jar" tofile="${plugins.dir}/Mail_serveur_plugin.jar"/>		
+		              </tasks>
+		            </configuration>
+		            <goals>
+		              <goal>run</goal>
+		            </goals>
+		          </execution>
+		        </executions> 
+			</plugin>
+		</plugins>
+	</build>
+	<properties>
+		<plugins.dir>D:/Nuxeo/nuxeo-cap-5.6-tomcat/nuxeo-cap-5.6-tomcat/nxserver/plugins/</plugins.dir>
+	</properties>
+
+</project>
