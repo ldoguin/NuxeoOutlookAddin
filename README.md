@@ -1,0 +1,4 @@
+NuxeoOutlookAddin
+=================
+
+Nuxeo Outlook Addin
