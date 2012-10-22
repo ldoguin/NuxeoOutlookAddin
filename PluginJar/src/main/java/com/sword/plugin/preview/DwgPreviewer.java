@@ -43,7 +43,7 @@ public class DwgPreviewer  implements MimeTypePreviewer {
 	        msg = msgp.parseMsg(USER_TEMP +"\\previewnuxeo.tmp");
 	        
 		} catch (IOException e1) {
-			log.fatal(e1.toString());
+			log.error(e1.toString());
 		}
               
 		List<Blob> blobResults = new ArrayList<Blob>();		

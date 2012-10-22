@@ -69,10 +69,6 @@ public class UploadAttachedRestlet extends BaseNuxeoRestlet implements
         String repo = (String) req.getAttributes().get("repo");
         String docid = (String) req.getAttributes().get("docid");
         String filename = (String) req.getAttributes().get("filename");
-        logger.fatal(">>> Attached Restlet");
-        logger.fatal("--- repo : " + repo);
-        logger.fatal("--- docid : " + docid);
-        logger.fatal("--- filename : " + filename);
 
         try {
             filename = URLDecoder.decode(filename, URL_ENCODE_CHARSET);
@@ -106,9 +102,7 @@ public class UploadAttachedRestlet extends BaseNuxeoRestlet implements
             blob.setFilename(filename);
             
             // Recuperation de la liste des fichiers joints
-            List<Object> files = (List<Object>)dm.getProperty("files", "files");
-            
-            logger.fatal(">>> Files : " + files);
+            List<Object> files = (List<Object>)dm.getProperty("files", "files");          
             
             if (files == null) {
             	files = new ArrayList<Object>(1);
@@ -118,8 +112,7 @@ public class UploadAttachedRestlet extends BaseNuxeoRestlet implements
             f.put("filename", filename);                
             f.put("file", blob);            
             files.add(f);
-            dm.setProperty("files", "files", files);
-            logger.fatal(">>> Creation du fichier attache " + filename + " OK!");
+            dm.setProperty("files", "files", files);            
             
             documentManager.saveDocument(dm);
             documentManager.save();

@@ -48,7 +48,7 @@ import com.auxilii.msgparser.attachment.FileAttachment;
 
 @SuppressWarnings("serial")
 public class MailImporter extends DefaultFileImporter {
-	static Logger logger = Logger.getLogger(MailImporter.class);
+	private static final Logger logger = Logger.getLogger(MailImporter.class);
 	
     public static final String TYPE_NAME = "MailMessage";
     private static final String TITLE_FIELD = "title";
@@ -114,7 +114,7 @@ public class MailImporter extends DefaultFileImporter {
 	    
         // Create a new empty DocumentModel of type Mail in memory
         String docId = IdUtils.generateStringId();
-        logger.info(" --- docId : " + docId);
+        
         DocumentModel docModel = documentManager.createDocumentModel(path, docId, MAIL_TYPE);
         docModel.setProperty(DUBLINCORE_SCHEMA, TITLE_FIELD, title);
         docModel.setProperty(MAIL_SCHEMA, SUBJECT_FIELD, subject);
@@ -167,7 +167,7 @@ public class MailImporter extends DefaultFileImporter {
         }
 	      documentManager.saveDocument(docModel);
           documentManager.save();	 
-        logger.info(" --- Document " + filename + " created");
+        
 		return docModel;
 	}
 	
@@ -204,7 +204,7 @@ public class MailImporter extends DefaultFileImporter {
 	                    UITypesConfiguration.class, UI_TYPES_CONFIGURATION_FACET,
 	                    currentDoc);
 	        } catch (Exception e) {
-	        //    log.error(e, e);
+				logger.error("Get configuration error", e);
 	        }
 	        return configuration;
 	    }
@@ -216,9 +216,9 @@ public class MailImporter extends DefaultFileImporter {
 				mtr = Framework.getService(MimetypeRegistry.class);
 				input = mtr.updateMimetype(input, filename);
 			} catch (MimetypeDetectionException e1) {
-			//	log.error("Can't update the Mimetype", e1);
-			} catch (Exception e1) {
-			//	log.error("An exception occured during the recuperation of the MimeType Service", e1);
+				logger.error("Can't update the Mimetype", e1);
+			} catch (Exception e2) {
+				logger.error("An exception occured during the recuperation of the MimeType Service", e2);
 			}
 			
 			return input;

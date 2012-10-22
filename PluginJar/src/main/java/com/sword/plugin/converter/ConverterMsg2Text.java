@@ -47,14 +47,14 @@ public class ConverterMsg2Text implements Converter {
      	        msg = msgp.parseMsg(USER_TEMP +"\\converterMsg2Txt.conv");
      	        
      		} catch (IOException e1) {
-     			log.fatal(e1.toString());
+     			log.error(e1.toString());
      		}
    
      		 String text = msg.toString() + msg.getBodyText(); 
             
              return new SimpleCachableBlobHolder(new StringBlob(text,"text/plain"));
          } catch (Exception e) {
-        	log.fatal("Error during Msg2Txt conversion", e);
+        	log.error("Error during Msg2Txt conversion", e);
             throw new ConversionException("Error during XML2Text conversion", e);          
          } 
      }
