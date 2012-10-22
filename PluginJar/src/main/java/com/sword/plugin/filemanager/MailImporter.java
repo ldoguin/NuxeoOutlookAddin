@@ -69,10 +69,6 @@ public class MailImporter extends DefaultFileImporter {
 	public DocumentModel create(CoreSession documentManager, Blob content,
 			String path, boolean overwrite, String fullname,
 			TypeManager typeService) throws ClientException, IOException {
-		logger.warn(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> MAIL IMPORTER!!! <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-		logger.warn(content);
-		logger.warn(fullname);
-		logger.warn(typeService);
 		path = getNearestContainerPath(documentManager, path);
 
         String filename = FileManagerUtils.fetchFileName(fullname);        
@@ -80,11 +76,6 @@ public class MailImporter extends DefaultFileImporter {
         
 
         content.getFilename();
-        logger.warn(" --- filename : " + filename);
-        logger.warn(" --- title : " + title);
-        logger.warn(" --- path : " + path);
-        logger.warn(" --- overwrite : " + overwrite);
-        
         
         // Extract data from mail file 
         final String USER_TEMP = System.getProperty("java.io.tmpdir");
@@ -170,13 +161,13 @@ public class MailImporter extends DefaultFileImporter {
 	            f.put("file", blob);            
 	            files.add(f);
 	            docModel.setProperty("files", "files", files);
-	            logger.info(">>> Creation du fichier attache " + attachFileName + " OK!");                             	       
+	            logger.info("Creation of attached file " + attachFileName + " OK!");                             	       
 		      } 
 		    }
         }
 	      documentManager.saveDocument(docModel);
           documentManager.save();	 
-        logger.info(" --- Document " + filename + " cree");
+        logger.info(" --- Document " + filename + " created");
 		return docModel;
 	}
 	
@@ -204,32 +195,7 @@ public class MailImporter extends DefaultFileImporter {
 		}
 		return mimeType;
 	}
-	
-	
-	/* public static String getTypeName(DocumentModel currentDoc) {
-	        UITypesConfiguration configuration = getConfiguration(currentDoc);
-	        if (configuration != null) {
-	            String defaultType = configuration.getDefaultType();
-	            if (defaultType != null) {
-	                return defaultType;
-	            }
-	        }
-	        return TYPE_NAME;
-	    }
-
-	    public static String getTypeName(TypeManager typemanager, DocumentModel currentDoc) {
-	        
-	        Collection<Type> liste = typemanager.getAllowedSubTypes(currentDoc.getType());
-	        Iterator<Type> iterator = liste.iterator();
-	        while(iterator.hasNext()){
-	            Type type = iterator.next();
-	            if (ArrayUtils.contains(typemanager.getSuperTypes(type.getId()),TYPE_NAME)){
-	                return type.getId();
-	            }
-	        }
-	        return TYPE_NAME;
-	    }*/
-	    
+		    
 	    protected static UITypesConfiguration getConfiguration(DocumentModel currentDoc) {
 	        UITypesConfiguration configuration = null;
 	        try {
