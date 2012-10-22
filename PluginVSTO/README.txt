@@ -1,5 +1,4 @@
 ================== Plugin Mail - Compilation =======================
-To compile those projects use MS Visual Studio 2010.
 
 Missing references (on the References project) :
 
@@ -16,6 +15,7 @@ Rebuild the certificate :
 ================== Plugin Mail - Installation ====================
 
 ==== Installation for Office 2003 - Prerequisites ====
+ - To compile those projects use MS Visual Studio 2007
 
 - Microsoft .NET Framework 3.5
 	DotNetFX35
@@ -29,6 +29,7 @@ Rebuild the certificate :
 
 
 ==== Installation for Office 2007 - Prerequisites ====
+- To compile those projects use MS Visual Studio 2010
 
 - Microsoft .NET Framework 4 Client Profile (x86 and x64)
 	dotNetFx40_Client_x86_x64.exe
@@ -42,6 +43,7 @@ Rebuild the certificate :
 
 
 ==== Installation for Office 2010 - Prerequisites ====
+- To compile those projects use MS Visual Studio 2010
 
 - Microsoft .NET Framework 4 Client Profile (x86 and x64)
 	dotNetFx40_Client_x86_x64.exe
