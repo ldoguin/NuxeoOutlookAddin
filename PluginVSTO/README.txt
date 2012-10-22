@@ -1,31 +1,26 @@
 ================== Plugin Mail - Compilation =======================
+To compile those projects use MS Visual Studio 2010.
 
-Référence manquantes :
+Missing references (on the References project) :
 
 - DotCMIS.dll
 - Newtonsoft.Json.dll
+On Visual Studio 2010, select the menu Project>Add Reference. In the Browse Tab, select the missing DLL.
 
+Rebuild the certificate :
 
-Mot de passe certificat.pfx : 
-
-- swordgroup
-
-
-Refaire certificat :
-
-- Click droit sur projet (OutlookAddIn1) - > Propriétés
-- Onglet Signing
-
+- Right click on the project (OutlookAddIn1) and select Properties.
+- On the Signing tab, change the password (the old password is swordgroup)
 
 
 ================== Plugin Mail - Installation ====================
 
-==== Installation du Plugin Mail pour Office 2003 - PréRequis ====
+==== Installation for Office 2003 - Prerequisites ====
 
 - Microsoft .NET Framework 3.5
 	DotNetFX35
 
-- Microsoft Visual Studio Tools pour Office System 3.0 Runtime
+- Microsoft Visual Studio Tools for Office System 3.0 Runtime
 	VSTOR30.exe
 
 - Microsoft Office Primary Interop assembly 2003
@@ -33,7 +28,7 @@ Refaire certificat :
 
 
 
-==== Installation du Plugin Mail pour Office 2007 - PréRequis ====
+==== Installation for Office 2007 - Prerequisites ====
 
 - Microsoft .NET Framework 4 Client Profile (x86 and x64)
 	dotNetFx40_Client_x86_x64.exe
@@ -46,7 +41,7 @@ Refaire certificat :
 - Hotfix KB976477
 
 
-==== Installation du Plugin Mail pour Office 2010 - PréRequis ====
+==== Installation for Office 2010 - Prerequisites ====
 
 - Microsoft .NET Framework 4 Client Profile (x86 and x64)
 	dotNetFx40_Client_x86_x64.exe
@@ -54,9 +49,11 @@ Refaire certificat :
 - Microsoft Visual Studio 2010 Tools for Office Runtime (x86 and x64)
 	vstor40x64.exe ou vstor40_x86.exe
 	
-
+The setup of the pplugin is included in the followibng sub projects :
+* OutlookAddIn1Installation for MS Outlook 2003
+* InstallOutlookAddin for MS Outlook 2007 and 2010
 
 ================== Plugin Mail - Configuration ====================
 
-Fichier de log : C:\Users\{Nom utilisateur}\AppData\Roaming\SWORD\OutlookAddin\tmp\error.log
-Fichier de configuration : C:\Program Files (x86)\SWORD\
+Log file : C:\Users\{User name}\AppData\Roaming\SWORD\OutlookAddin\tmp\error.log
+Configuration file : C:\Program Files (x86)\SWORD\
