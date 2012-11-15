@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-
-  <groupId>com.sword.plugin</groupId>
-  <artifactId>Mail_plugin</artifactId>
-  
-  <version>1.0-SNAPSHOT</version>
-
-  <name>Mail_Serveur_Plugin</name>
-  <url>http://www.sword.com</url>
-  
   <parent>
     <groupId>org.nuxeo.ecm.platform</groupId>
     <artifactId>nuxeo-features-parent</artifactId>
     <version>5.6</version>
   </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.sword.plugin</groupId>
+  <artifactId>mail-plugin</artifactId>
+  <name>Mail_Serveur_Plugin</name>  
 
   <dependencies>
 	    <dependency>
@@ -30,14 +25,18 @@
   			<artifactId>nuxeo-platform-preview</artifactId>
   		</dependency>
 		<dependency>
+			<groupId>org.nuxeo.ecm.core</groupId>
+			<artifactId>nuxeo-core-convert-plugins</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.auxilii</groupId>
 			<artifactId>msgparser</artifactId>
 			<version>1.8</version>
 		</dependency>
 		<dependency>
-			<groupId>org.nuxeo.ecm.core</groupId>
-			<artifactId>nuxeo-core-convert-plugins</artifactId>
-			<version>${nuxeo.core.version}</version>
+			<groupId>net.freeutils.jtnef</groupId>
+			<artifactId>tnef</artifactId>
+			<version>1.5.0</version>
 		</dependency>
   </dependencies>
 

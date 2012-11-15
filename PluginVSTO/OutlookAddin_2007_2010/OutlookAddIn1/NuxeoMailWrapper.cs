@@ -121,11 +121,9 @@ namespace OutlookAddIn1
                         //Upload Attachments
                         for (int iCurAttachment = 1; iCurAttachment <= nbAttachments; iCurAttachment++)
                         {
-                            //If Attachment or Embedded picture
-                            //Property PR_ATTACH_CONTENT_ID 0x3712001E
-                            //Property PR_ATTACH_CONTENT_LOCATION 0x3713001E 
-                            //If null, attachment
-                            if (mailItem.Attachments[iCurAttachment].PropertyAccessor.GetProperty("http://schemas.microsoft.com/mapi/proptag/0x3713001E") == "" & mailItem.Attachments[iCurAttachment].PropertyAccessor.GetProperty("http://schemas.microsoft.com/mapi/proptag/0x3712001E") == "")
+                            //Property ATTACH_FLAGS 0x37140003
+                            //If != 4, attachment
+                            if (mailItem.Attachments[iCurAttachment].PropertyAccessor.GetProperty("http://schemas.microsoft.com/mapi/proptag/0x37140003") != 4)
                             {
                                 attachFile(mailItem.Attachments[iCurAttachment], doc.Id);
                                 i++;

@@ -7,10 +7,4 @@
     </module> 
   </extension>  
   <require>all</require>
-  <install>
-    <delete path="${bundle.fileName}.tmp"/>
-    <unzip from="${bundle.fileName}" to="${bundle.fileName}.tmp"/>
-    <copy from="${bundle.fileName}.tmp/nuxeo.war" to="/"/>
-    <delete path="${bundle.fileName}.tmp"/>
-  </install>
 </fragment>
