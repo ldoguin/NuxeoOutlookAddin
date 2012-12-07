@@ -180,12 +180,19 @@ namespace OutlookAddIn1
 
                 SessionFactory factory = SessionFactory.NewInstance();
                 ISession session = factory.GetRepositories(parameters)[0].CreateSession();
-                IItemEnumerable<IQueryResult> qr = session.Query("SELECT * from cmis:folder where cmis:parentId = '" + treeNode.Name + "'", false);
+                IItemEnumerable<IQueryResult> qr = session.Query("SELECT * from cmis:folder where cmis:parentId = '" + treeNode.Name + "' ORDER BY cmis:name", false);
 
                 foreach (IQueryResult hit in qr)
                 {
-                    TreeNode tn = treeNode.Nodes.Add(hit["cmis:objectId"].FirstValue.ToString(), hit["cmis:name"].FirstValue.ToString());
-                    AddVirtualNode(tn);
+                    //Recuperation du dossier
+                    Object obj = session.GetObject(hit["cmis:objectId"].FirstValue.ToString());
+                    Folder folder = (Folder)obj;
+                    if (folder.AllowableActions.Actions.Contains("canCreateDocument"))
+                    {
+                        TreeNode tn = treeNode.Nodes.Add(hit["cmis:objectId"].FirstValue.ToString(), hit["cmis:name"].FirstValue.ToString());
+                        AddVirtualNode(tn);
+                    }
+                  
                 }
             }
             catch (Exception e)

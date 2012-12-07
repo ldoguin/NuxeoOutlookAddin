@@ -218,8 +218,14 @@ namespace OutlookAddIn1
 
                 foreach (IQueryResult hit in qr)
                 {
-                    TreeNode tn = treeNode.Nodes.Add(hit["cmis:objectId"].FirstValue.ToString(), hit["cmis:name"].FirstValue.ToString());
-                    AddVirtualNode(tn);
+                    //Recuperation du dossier
+                    Object obj = session.GetObject(hit["cmis:objectId"].FirstValue.ToString());
+                    Folder folder = (Folder)obj;
+                    if (folder.AllowableActions.Actions.Contains("canCreateDocument"))
+                    {
+                        TreeNode tn = treeNode.Nodes.Add(hit["cmis:objectId"].FirstValue.ToString(), hit["cmis:name"].FirstValue.ToString());
+                        AddVirtualNode(tn);
+                    }
                 }
             }
             catch (Exception e)

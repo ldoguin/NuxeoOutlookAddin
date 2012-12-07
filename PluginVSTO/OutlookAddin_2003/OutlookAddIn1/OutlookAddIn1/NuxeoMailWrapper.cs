@@ -92,7 +92,7 @@ namespace OutlookAddIn1
                 //max size of mail:htmlText = 65536
                 if (!(html.Length < 60000))
                 {
-                    FormError bob = new FormError("Le mail est trop long, impossible de l'uploader dans nuxeo.");
+                    FormError bob = new FormError("Erreur","Le mail est trop long, impossible de l'uploader dans nuxeo.");
                     bob.ShowDialog();
                     return null;
                 }
@@ -126,21 +126,24 @@ namespace OutlookAddIn1
                             //If null, attachment
                             AddinExpress.MAPI.ADXMAPIStoreAccessor adxmapiStoreAccessor1 = new AddinExpress.MAPI.ADXMAPIStoreAccessor();
                             adxmapiStoreAccessor1.Initialize(true);
-                            string PR_ATTACH_CONTENT_LOCATION = (string)adxmapiStoreAccessor1.GetProperty(mailItem.Attachments[iCurAttachment], AddinExpress.MAPI.ADXMAPIPropertyTag._PR_ATTACH_CONTENT_LOCATION);
-                            string PR_ATTACH_CONTENT_ID = (string)adxmapiStoreAccessor1.GetProperty(mailItem.Attachments[iCurAttachment], AddinExpress.MAPI.ADXMAPIPropertyTag._PR_ATTACH_CONTENT_ID);
+                            //string PR_ATTACH_CONTENT_LOCATION = (string)adxmapiStoreAccessor1.GetProperty(mailItem.Attachments[iCurAttachment], AddinExpress.MAPI.ADXMAPIPropertyTag._PR_ATTACH_CONTENT_LOCATION);
+                            //string PR_ATTACH_CONTENT_ID = (string)adxmapiStoreAccessor1.GetProperty(mailItem.Attachments[iCurAttachment], AddinExpress.MAPI.ADXMAPIPropertyTag._PR_ATTACH_CONTENT_ID);
+                            int PR_ATTACH_FLAGS = (int)adxmapiStoreAccessor1.GetProperty(mailItem.Attachments[iCurAttachment], AddinExpress.MAPI.ADXMAPIPropertyTag._PR_ATTACH_FLAGS);
                             using (System.IO.StreamWriter file = new System.IO.StreamWriter(appDataFolterPath + "\\" + folderConfigName + @"\tmp\error.log", true))
                             {
                                 file.WriteLine("Attachment.Name : " + mailItem.Attachments[iCurAttachment].FileName);
-                                file.WriteLine("PR_ATTACH_CONTENT_LOCATION : " + PR_ATTACH_CONTENT_LOCATION + " |");
-                                file.WriteLine("PR_ATTACH_CONTENT_ID : " + PR_ATTACH_CONTENT_ID + " |");
+                                //file.WriteLine("PR_ATTACH_CONTENT_LOCATION : " + PR_ATTACH_CONTENT_LOCATION + " |");
+                                //file.WriteLine("PR_ATTACH_CONTENT_ID : " + PR_ATTACH_CONTENT_ID + " |");
+                                file.WriteLine("PR_ATTACH_FLAGS : " + PR_ATTACH_FLAGS + " |");
                                 file.Close();
                             }
-                            if (PR_ATTACH_CONTENT_LOCATION == null & PR_ATTACH_CONTENT_ID == null)
+                           // if (PR_ATTACH_CONTENT_LOCATION == null & PR_ATTACH_CONTENT_ID == null)
+                            if(PR_ATTACH_FLAGS != 4 )
                              {
                                  i++;
                                  attachFile(mailItem.Attachments[iCurAttachment], doc.Id);
                              }
-                        }
+                        } 
 
                         //Upload pictures embedded in mail
                         foreach (Match m in Regex.Matches(html, pattern, RegexOptions.IgnoreCase))
